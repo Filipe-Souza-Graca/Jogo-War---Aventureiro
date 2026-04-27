@@ -93,7 +93,7 @@ int main()
                 scanf("%s", mapa[jogador].cor, "\n");
 
                 printf("\nAgora coloque a quantidade de peça do dabuleiro o Jogador possui\n");
-                scanf("%d", &mapa[jogador].tropas, "\n");
+                scanf("%d", &mapa[jogador].tropas);
 
                 jogador++;
             }
