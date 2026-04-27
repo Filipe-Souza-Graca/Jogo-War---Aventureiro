@@ -94,6 +94,7 @@ int main()
 
                 printf("\nAgora coloque a quantidade de peça do dabuleiro o Jogador possui\n");
                 scanf("%d", &mapa[jogador].tropas);
+                
 
                 jogador++;
             }
@@ -108,31 +109,41 @@ int main()
             printf("\nAqui esta a lista de mapa\n");
             for (int i = 0; i < jogador; i++)
             {
+                /*
+                Estrutura como forma de lista para identificação estrutural 
+                */
+                printf("ID: %d", i +1);
+                printf("Nome: %s", mapa[i].nome);
+                printf("Cor: %s", mapa[i].cor);
+                printf("'Tropas: %d", mapa[i].tropas);    
 
-                printf("%d. pais: %s cor: %s tropas: %d\n",
-                       i + 1, mapa[i].nome, mapa[i].cor, mapa[i].tropas);
             }
 
             break;
 
         case 3:
-            if (jogador < 1)
+            if (jogador <= 1) // Modificado para que no minimo tenha 2 jogadores
             {
                 printf("Não possui mapa o suficiente");
             }
             else
             {
                 int idA, idB;
-                printf("selecione o atacante e o defensor");
-                printf("O atacante tem é: ");
+                printf("\nselecione o atacante e o defensor\n");
+
+                printf("\n==========================================\n");
+                printf("\nAqui voce deve selecionar primeiro o atacante\n");
+
+                printf("\nO atacante tem qual numero na lista!: \n");
                 scanf("%d", &idA);
 
-                if (idA == 0)
+                if (idA == 0 or idB == 0) // adicionando a condição de zero para defensor tambem
                 {
                     printf("\nVoce esta saindo da partida");
                     break;
                 }
-                printf("O atacante tem é: ");
+                printf("\n========================================\n");
+                printf("O Defensor tem qual numero na lista: \n");
                 scanf("%d", &idB);
 
                 if (idA > 0 && idA <= jogador && idB > 0 && idB <= jogador && idA != idB)
@@ -162,14 +173,23 @@ int main()
 
                         int metade = (*atacante).tropas / 2;
 
+                        /*
+                        Adicionando uma condição de metade de numero inteiro!! caso 
+                        apareça em algum momento a variavel do tipo flout 
+                        */
+
+                        if (metade <= 0 && metade == (int)metade){
+
                         mapa[idB - 1].tropas = metade;
                         (*defensor).tropas = metade;
 
                         mapa[idA - 1].tropas -= metade;
-                        (*atacante).tropas -= metade;
+                        (*atacante).tropas -= metade;}
+                        else if (metade < 0){
+                        
 
                         printf("\nTerritorio dominado! %d tropas transferidas.", metade);
-                    }
+                    }}
                     else
                     {
                         printf("\nO Atacante perdeu a rodada!");
