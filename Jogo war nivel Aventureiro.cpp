@@ -66,6 +66,8 @@ int main()
     printf("================================\n");
     printf("\nDigite 2 para ver as lista cadastrada\n");
     printf("================================\n");
+    printf("\nDigite 3 para jogar\n");
+    printf("================================\n");
     printf("\nDigite 0 para sair do cadastro\n");
 
     
