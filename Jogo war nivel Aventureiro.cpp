@@ -76,6 +76,7 @@ int main()
     {
 
         scanf("%d", &opcao);
+        while (getchar() != '\n');
 
         switch (opcao)
         {
@@ -85,18 +86,23 @@ int main()
                 printf("\n===========Coloque o nome do país===========\n");
                 printf("Nome!\n");
 
-                scanf("%s", mapa[jogador].nome, "\n");
+                scanf(" %s", mapa[jogador].nome, "\n");
 
                 printf("\n===========Coloque a cor das peças===========\n");
                 printf("\ncoloque a cor, ex. Vermelo, azul, rosa, etc.\n");
 
-                scanf("%s", mapa[jogador].cor, "\n");
+                scanf(" %s", mapa[jogador].cor, "\n");
 
                 printf("\nAgora coloque a quantidade de peça do dabuleiro o Jogador possui\n");
-                scanf("%d", &mapa[jogador].tropas);
-                
+                scanf(" %d", &mapa[jogador].tropas);
+                while (getchar() != '\n');
 
                 jogador++;
+                printf("\nProximo\n");
+                if (int i =  Limite; Limite == jogador ){
+                    printf("acabou o cadastro");
+                };
+                
             }
             else
             {
@@ -137,7 +143,7 @@ int main()
                 printf("\nO atacante tem qual numero na lista!: \n");
                 scanf("%d", &idA);
 
-                if (idA == 0 or idB == 0) // adicionando a condição de zero para defensor tambem
+                if (idA == 0 || idB == 0) // adicionando a condição de zero para defensor tambem
                 {
                     printf("\nVoce esta saindo da partida");
                     break;
