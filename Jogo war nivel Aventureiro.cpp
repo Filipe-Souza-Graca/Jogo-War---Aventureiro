@@ -22,6 +22,16 @@ typedef struct {
     int defesa;
 } Defensor;
 
+void mostrarSituacaoAtual(struct Pais p) {
+    printf("\n==============================\n");
+    printf("   RELATORIO DE TERRITORIO    \n");
+    printf("==============================\n");
+    printf(" Pais: %s\n", p.pais);
+    printf(" Tropas atuais: %d\n", p.tropas);
+    printf(" Cor do Dominio: %s\n", p.cor);
+    printf("==============================\n\n");
+}
+
 int main() {
     // Inicializa a semente do número aleatório
     srand(time(NULL));
@@ -186,8 +196,7 @@ int main() {
                         printf("\nA DEFESA VENCEU! O ataque perdeu forca.\n");
                         // Aqui você pode subtrair algo do atacante se tiver uma variável de "tropas do jogador"
                     }
-                    printf("Situacao atual de %s: %d tropas.\n", mapa[idPais].pais, mapa[idPais].tropas);
-                }
+                   mostrarSituacaoAtual(mapa[idPais]);                }
                 break;
 
             case 0:
